@@ -4,7 +4,7 @@ $host = "localhost";
 $dbname = "auth_system";
 $port = "3308";
 $username = "root"; // Default XAMPP username
-$password = ""; // Default XAMPP password (empty by default in XAMPP)
+$password = ""; // Default XAMPP password
 
 try {
     // Create PDO connection with additional options

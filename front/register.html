@@ -15,15 +15,19 @@
     <div class="p-4 overflow-hidden container-fluid background-radial-gradient">
         <div class="row">
             <div class="d-flex flex-column justify-content-center text-md-start text-center col-md-6">
-                <h1 class="my-5 px-3 display-3 fw-bold ls-tight" style="color: hsl(218, 81%, 95%);">
-                    The best offer <br>
-                    <span style="color: hsl(218, 81%, 75%);">for your business</span>
+                <h1 class="my-4 px-3 display-3 fw-bold ls-tight" style="color: hsl(218, 81%, 95%);">
+                    Secure Registration <br>
+                    <span style="color: hsl(218, 81%, 75%);">Best Password Practices 🔐</span>
                 </h1>
-                <p class="px-3" style="color: hsl(218, 81%, 85%);">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, itaque accusantium odio,
-                    soluta, corrupti aliquam quibusdam tempora at cupiditate quis eum maiores libero veritatis?
-                    Dicta facilis sint aliquid ipsum atque?
-                </p>
+                <ul class="px-3 checklist" style="color: hsl(218, 81%, 85%); font-size: 1.1rem; text-align: left;">
+                    <li>Password must be at least <b>8 characters</b> for strong security.</li>
+                    <li>Include at least <b>one uppercase letter</b> (A-Z).</li>
+                    <li>Include at least <b>one number</b> (0-9).</li>
+                    <li>Include at least <b>one special character</b> (e.g., #, $, %, @, !, &amp;, *).</li>
+                    <li>Avoid using forbidden characters: <b>( ) " :</b></li>
+                    <li>Use a unique email address for each registration.</li>
+                    <li>Passwords are checked for strength and suggestions are provided as you type.</li>
+                </ul>
             </div>
             <div class="position-relative col-md-6">
                 <div id="radius-shape-1" class="position-absolute shadow-5-strong rounded-circle"></div>
@@ -41,25 +45,24 @@
                             method="POST">
                             <div class="row">
                                 <div class="col-6">
-                                    <div class="mb-4 form-outline">
+                                    <div class="mb-2 form-outline">
                                         <label class="form-label" for="firstName">First Name</label>
                                         <input type="text" id="firstName" class="form-control" name="firstName"
                                             required>
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <div class="mb-4 form-outline">
+                                    <div class="mb-2 form-outline">
                                         <label class="form-label" for="lastName">Last Name</label>
                                         <input type="text" id="lastName" class="form-control" name="lastName" required>
                                     </div>
                                 </div>
                             </div>
-                            <div class="mb-4 form-outline">
+                            <div class="mb-2 form-outline">
                                 <label class="form-label" for="email">Email</label>
                                 <input type="email" id="email" class="form-control" name="email" required>
-
                             </div>
-                            <div class="mb-4 password-input-container">
+                            <div class="mb-1 password-input-container">
                                 <div class="form-outline">
                                     <label class="form-label" for="confirmPassword">Your Password</label>
                                     <input type="password" id="password" class="form-control" name="password"

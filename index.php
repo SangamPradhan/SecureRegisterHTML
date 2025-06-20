@@ -11,26 +11,32 @@ $userName = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'Username';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
         .sidebar {
             height: 100vh;
             transition: all 0.3s;
         }
+
         .collapsed {
             width: 60px;
         }
+
         .collapsed .nav-link span {
             display: none;
         }
+
         .collapsed .nav-link i {
             margin-right: 0;
         }
+
         .profile-icon {
             width: 50px;
             height: 50px;
@@ -43,6 +49,7 @@ $userName = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'Username';
         }
     </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
@@ -87,4 +94,5 @@ $userName = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'Username';
         }
     </script>
 </body>
+
 </html>
