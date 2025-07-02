@@ -140,6 +140,20 @@
                     const button = form.querySelector("#submitButton");
                     button.disabled = true;
                     button.textContent = 'Signing Up...';
+
+                    // Check if captcha is completed
+                    const captchaResponse = grecaptcha.getResponse();
+                    if (!captchaResponse) {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Captcha Required',
+                            text: 'Please complete the captcha before submitting.'
+                        });
+                        button.disabled = false;
+                        button.textContent = 'Sign Up';
+                        return;
+                    }
+
                     Swal.fire({
                         title: 'Registering...',
                         allowOutsideClick: false,
@@ -148,6 +162,7 @@
                         }
                     });
                     const formData = new FormData(form);
+                    formData.append('g-recaptcha-response', captchaResponse);
                     fetch(form.action, {
                         method: "POST",
                         body: formData
