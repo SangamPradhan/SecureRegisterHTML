@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <div class="p-4 overflow-hidden container-fluid background-radial-gradient">
@@ -48,6 +49,7 @@
                                     </label>
                                 </div>
                             </div>
+                            <div class="mb-2 g-recaptcha" data-sitekey="6Lc7LlArAAAAAGWxx7e7O1o9uWu-0Q7wmjb6G1vF"></div>
                             <button class="mb-4 w-100 btn btn-primary" type="submit" id="submitButton">
                                 Login
                             </button>
@@ -91,12 +93,31 @@ document.addEventListener("DOMContentLoaded", function () {
             const button = form.querySelector("#submitButton");
             button.disabled = true;
             button.textContent = 'Logging In...';
+
+            // Check if captcha is completed (for login page)
+            const captchaElement = document.querySelector('.g-recaptcha');
+            let captchaResponse = '';
+            if (captchaElement && typeof grecaptcha !== 'undefined') {
+                captchaResponse = grecaptcha.getResponse();
+                if (!captchaResponse) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Captcha Required',
+                        text: 'Please complete the captcha before logging in.'
+                    });
+                    button.disabled = false;
+                    button.textContent = 'Login';
+                    return;
+                }
+            }
+
             Swal.fire({
                 title: 'Logging in...',
                 allowOutsideClick: false,
                 didOpen: () => { Swal.showLoading(); }
             });
             const formData = new FormData(form);
+            if (captchaResponse) formData.append('g-recaptcha-response', captchaResponse);
             fetch(form.action, {
                 method: "POST",
                 body: formData
